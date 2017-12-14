@@ -1,0 +1,6 @@
+---
+all:
+    hosts:
+        default:
+            ansible_connection: chroot
+            ansible_host: "{{ lookup('env','ROOTFS') }}"

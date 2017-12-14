@@ -1,0 +1,104 @@
+---
+apt:
+    wipe:
+        configs: true
+        sources: true
+        preferences: true
+        marks: true
+
+    autoremove: true
+    update_cache: true
+    upgrade: true
+
+    marks:
+        - apt-transport-https
+        - ca-certificates
+        - python
+        - python-apt
+
+dpkg:
+    wipe: true
+
+resolv:
+    nameservers:
+        - 8.8.8.8
+        - 8.8.4.4
+
+shell:
+    wipe: true
+
+accounts:
+    - name: root
+
+permissions:
+    suid: []
+    sgid: []
+    ownerless: []
+    groupless: []
+
+    world_writable:
+        files: []
+        directories: [/tmp, /var/tmp]
+
+scrub:
+    directories:
+        - /boot
+        - /etc/cron.d
+        - /etc/cron.daily
+        - /etc/cron.hourly
+        - /etc/cron.monthly
+        - /etc/cron.weekly
+        - /etc/opt
+        - /etc/skel
+        - /etc/update-motd.d
+        - /home
+        - /media
+        - /mnt
+        - /opt
+        - /proc
+        - /root
+        - /run
+        - /srv
+        - /sys
+        - /usr/local/bin
+        - /usr/local/etc
+        - /usr/local/games
+        - /usr/local/include
+        - /usr/local/lib
+        - /usr/local/man
+        - /usr/local/sbin
+        - /usr/local/share
+        - /usr/local/src
+        - /usr/share/doc
+        - /usr/share/groff
+        - /usr/share/info
+        - /usr/share/linda
+        - /usr/share/lintian
+        - /usr/share/locale
+        - /usr/share/man
+        - /usr/src
+        - /tmp
+        - /var/backups
+        - /var/cache
+        - /var/lib/apt/lists
+        - /var/lib/dbus
+        - /var/local
+        - /var/lock
+        - /var/log
+        - /var/mail
+        - /var/opt
+        - /var/tmp
+        - /var/www
+
+    files:
+        - /etc/.pwd.lock
+        - /etc/group-
+        - /etc/gshadow-
+        - /etc/passwd-
+        - /etc/shadow-
+        - /etc/ssh/ssh_host_ecdsa_key
+        - /etc/ssh/ssh_host_ecdsa_key.pub
+        - /etc/ssh/ssh_host_ed25519_key
+        - /etc/ssh/ssh_host_ed25519_key.pub
+        - /etc/ssh/ssh_host_rsa_key
+        - /etc/ssh/ssh_host_rsa_key.pub

@@ -1,0 +1,12 @@
+---
+- hosts: default
+
+  roles:
+      - conn.rootfs
+
+- hosts: default
+
+  roles:
+      - conn.accounts
+      - conn.permissions
+      - conn.scrub

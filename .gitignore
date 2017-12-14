@@ -1,0 +1,6 @@
+ansible/*.retry
+ansible/roles/*
+!ansible/roles/requirements.yml
+
+builds/*
+!builds/.keep
