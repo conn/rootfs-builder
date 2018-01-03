@@ -16,5 +16,5 @@
 
 - name: conn.rootfs
   src: https://github.com/conn/ansible-role-rootfs
-  tag: v2.0.0
-  version: e559cf158cc2a93b5c706bf98eb0fc2f61a9b74d
+  tag: v2.0.1
+  version: f71a8b4ef1a82a1711f18dbd43e2fba3d5d8d95d
