@@ -1,24 +1,20 @@
 ---
 - name: conn.accounts
   src: https://github.com/conn/ansible-role-accounts
-
-  # v1.0.0
+  tag: v1.0.0
   version: bc9d56b36e451b52e4e68728cce981970df63e74
 
 - name: conn.permissions
   src: https://github.com/conn/ansible-role-permissions
-
-  # v1.0.1
+  tag: v1.0.1
   version: 159cff2143efe5f18d377975077695c89b12be33
 
 - name: conn.scrub
   src: https://github.com/conn/ansible-role-scrub
-
-  # v1.1.1
+  tag: v1.1.1
   version: 4c6cbba72763268350ed41db2961056c72e457da
 
 - name: conn.rootfs
   src: https://github.com/conn/ansible-role-rootfs
-
-  # v2.0.0
+  tag: v2.0.0
   version: e559cf158cc2a93b5c706bf98eb0fc2f61a9b74d
