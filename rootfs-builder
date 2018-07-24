@@ -2,11 +2,19 @@
 
 set -eu
 
+current_arch="$(dpkg --print-architecture)"
+arch="${1:-$current_arch}"
+
+if [ "$arch" != 'amd64' ] && [ "$arch" != 'i386' ]; then
+  >&2 echo 'Only amd64 and i386 are supported'
+  exit 1
+fi
+
 version="$(jq -r '.version' variables.json)-$(date +'%s')"
-tarball="builds/rootfs-$version.tar.xz"
+tarball="builds/rootfs-$arch-$version.tar.xz"
 rootfs="$(mktemp -d rootfs.XXX)"
 
-debootstrap --arch=amd64 \
+debootstrap --arch="$arch" \
             --force-check-gpg \
             --no-merged-usr \
             --variant=minbase \
@@ -22,6 +30,10 @@ ROOTFS="$rootfs" ansible-playbook \
 tar -Jp --numeric-owner -C "$rootfs" -f "$tarball" -c .
 rm -rf "$rootfs"
 
-docker image import "$tarball" "conn/rootfs:$version"
+docker image import "$tarball" "conn/rootfs-$arch:$version"
+
+if [ "$arch" == "amd64" ]; then
+  docker tag "conn/rootfs-amd64:$version" "conn/rootfs:$version"
+fi
 
 echo "VERSION: $version"
